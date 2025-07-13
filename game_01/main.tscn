@@ -1,0 +1,205 @@
+[gd_scene load_steps=23 format=3 uid="uid://blnekn1j3dajt"]
+
+[ext_resource type="Script" uid="uid://b4un7rnu4h61w" path="res://Scripts/MainGame.gd" id="1_7mycd"]
+[ext_resource type="Texture2D" uid="uid://biwdk61gjq7n" path="res://assets/images/BG.png" id="1_lquwl"]
+[ext_resource type="Texture2D" uid="uid://xd5nt1if68t7" path="res://assets/images/参照.png" id="2_7mycd"]
+[ext_resource type="Texture2D" uid="uid://c01gd04uqeq3r" path="res://assets/images/tile1.png" id="3_272bh"]
+[ext_resource type="FontFile" path="res://assets/fonts/Source_32.tres" id="4_5vw27"]
+[ext_resource type="FontFile" uid="uid://d2a6048ps4sbg" path="res://assets/fonts/Mtc-1-Se.tres" id="5_kek77"]
+[ext_resource type="Texture2D" uid="uid://b7lbu7qe2h6oi" path="res://assets/images/tile20.png" id="5_vivmo"]
+[ext_resource type="Script" uid="uid://bcpij0ad05p68" path="res://Scripts/GUI.gd" id="6_vivmo"]
+[ext_resource type="AudioStream" uid="uid://d1p51hsaucw1h" path="res://assets/sounds/Background_tune.ogg" id="8_w48qg"]
+[ext_resource type="AudioStream" uid="uid://c0amkfvlrtfx7" path="res://assets/sounds/clear.wav" id="9_vivmo"]
+[ext_resource type="AudioStream" uid="uid://byncpashrl2sr" path="res://assets/sounds/land.mp3" id="10_2cqfq"]
+[ext_resource type="AudioStream" uid="uid://fkb4c1s0e3xm" path="res://assets/sounds/gameover.wav" id="11_074og"]
+[ext_resource type="AudioStream" uid="uid://r8yd46cv1gy8" path="res://assets/sounds/move.mp3" id="11_yaehf"]
+[ext_resource type="AudioStream" uid="uid://bxopooouoetau" path="res://assets/sounds/level.mp3" id="12_2cqfq"]
+[ext_resource type="AudioStream" uid="uid://d2yasau4mn6dm" path="res://assets/sounds/pause.mp3" id="12_074og"]
+[ext_resource type="AudioStream" uid="uid://bb2j44pi45q0b" path="res://assets/sounds/rotate.mp3" id="13_cegan"]
+[ext_resource type="AudioStream" uid="uid://bc8anuxi2idnr" path="res://assets/sounds/shift.mp3" id="14_82xsv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c57u"]
+resource_name = "tile1"
+texture = ExtResource("3_272bh")
+texture_region_size = Vector2i(44, 44)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2cqfq"]
+texture = ExtResource("5_vivmo")
+texture_region_size = Vector2i(44, 44)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_efxa6"]
+tile_size = Vector2i(44, 44)
+sources/0 = SubResource("TileSetAtlasSource_4c57u")
+sources/1 = SubResource("TileSetAtlasSource_2cqfq")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
+texture = ExtResource("3_272bh")
+texture_region_size = Vector2i(44, 44)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_dg77c"]
+tile_size = Vector2i(44, 44)
+sources/0 = SubResource("TileSetAtlasSource_7mycd")
+
+[node name="MainGame" type="Node2D"]
+script = ExtResource("1_7mycd")
+
+[node name="Bg" type="Sprite2D" parent="."]
+texture = ExtResource("1_lquwl")
+centered = false
+
+[node name="参照" type="Sprite2D" parent="Bg"]
+visible = false
+position = Vector2(1132, 666)
+texture = ExtResource("2_7mycd")
+
+[node name="MainTileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(27, 24)
+tile_set = SubResource("TileSet_efxa6")
+
+[node name="NextTileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(511, 508)
+tile_set = SubResource("TileSet_dg77c")
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 481.0
+offset_right = 741.0
+offset_bottom = 909.0
+localize_numeral_system = false
+script = ExtResource("6_vivmo")
+
+[node name="_Score" type="Label" parent="GUI"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 29.0
+offset_right = 123.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_5vw27")
+theme_override_font_sizes/font_size = 32
+text = "SCORE"
+
+[node name="Score" type="Label" parent="GUI"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 73.0
+offset_right = 237.0
+offset_bottom = 135.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_kek77")
+theme_override_font_sizes/font_size = 60
+text = "00000"
+horizontal_alignment = 2
+
+[node name="_Levels" type="Label" parent="GUI"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 177.0
+offset_right = 116.0
+offset_bottom = 211.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_5vw27")
+theme_override_font_sizes/font_size = 32
+text = "Levels"
+
+[node name="Levels" type="Label" parent="GUI"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 221.0
+offset_right = 237.0
+offset_bottom = 283.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_kek77")
+theme_override_font_sizes/font_size = 60
+text = "00000"
+horizontal_alignment = 2
+
+[node name="_Speed" type="Label" parent="GUI"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 316.0
+offset_right = 116.0
+offset_bottom = 350.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_5vw27")
+theme_override_font_sizes/font_size = 32
+text = "Speed"
+
+[node name="Speed" type="Label" parent="GUI"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 354.0
+offset_right = 237.0
+offset_bottom = 416.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_kek77")
+theme_override_font_sizes/font_size = 60
+text = "00"
+horizontal_alignment = 2
+
+[node name="_Next" type="Label" parent="GUI"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 432.0
+offset_right = 116.0
+offset_bottom = 466.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_5vw27")
+theme_override_font_sizes/font_size = 32
+text = "Next"
+
+[node name="_control" type="Label" parent="GUI"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 831.0
+offset_right = 242.0
+offset_bottom = 903.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_5vw27")
+theme_override_font_sizes/font_size = 21
+text = "Q：方向         R：快速下落
+
+A-S-D:方向    G :重新开始"
+
+[node name="Tick" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="lateral_Tick" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="audio" type="Node" parent="."]
+
+[node name="Background" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("8_w48qg")
+volume_db = -6.0
+
+[node name="clear" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("9_vivmo")
+
+[node name="gameover" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("11_074og")
+
+[node name="land" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("10_2cqfq")
+
+[node name="level" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("12_2cqfq")
+
+[node name="move" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("11_yaehf")
+
+[node name="pause" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("12_074og")
+
+[node name="rotate" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("13_cegan")
+
+[node name="shift" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("14_82xsv")
+
+[connection signal="timeout" from="Tick" to="." method="_on_tick_timeout"]
+[connection signal="timeout" from="lateral_Tick" to="." method="_on_lateral_tick_timeout"]
