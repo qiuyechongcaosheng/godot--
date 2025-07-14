@@ -1,0 +1,221 @@
+[gd_scene load_steps=21 format=3 uid="uid://buhpvyhega188"]
+
+[ext_resource type="Texture2D" uid="uid://dkt7dp507xmss" path="res://assets/sprites/coin.png" id="1_4q4x0"]
+[ext_resource type="Script" uid="uid://du5igi1tdqy1d" path="res://scripts/coin.gd" id="1_apv5k"]
+[ext_resource type="AudioStream" uid="uid://cu7qac2pmtyml" path="res://assets/sounds/coin.wav" id="3_rtuuy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjxyp"]
+atlas = ExtResource("1_4q4x0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjy17"]
+atlas = ExtResource("1_4q4x0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pty0"]
+atlas = ExtResource("1_4q4x0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndx7k"]
+atlas = ExtResource("1_4q4x0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx5uy"]
+atlas = ExtResource("1_4q4x0")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rejl"]
+atlas = ExtResource("1_4q4x0")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2cjr"]
+atlas = ExtResource("1_4q4x0")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsqqy"]
+atlas = ExtResource("1_4q4x0")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbln0"]
+atlas = ExtResource("1_4q4x0")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd3p8"]
+atlas = ExtResource("1_4q4x0")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfllt"]
+atlas = ExtResource("1_4q4x0")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu8i6"]
+atlas = ExtResource("1_4q4x0")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x2nx5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjxyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjy17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pty0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndx7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx5uy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rejl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2cjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsqqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbln0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd3p8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfllt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu8i6")
+}],
+"loop": true,
+"name": &"jinbidonghua",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gtrvk"]
+radius = 4.0
+
+[sub_resource type="Animation" id="Animation_vocxi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ptes2"]
+resource_name = "pickup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_redraw"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vikg4"]
+_data = {
+&"RESET": SubResource("Animation_vocxi"),
+&"pickup": SubResource("Animation_ptes2")
+}
+
+[node name="coin" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_apv5k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x2nx5")
+animation = &"jinbidonghua"
+autoplay = "jinbidonghua"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gtrvk")
+
+[node name="Pickuosound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rtuuy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Pickuosound")
+libraries = {
+&"": SubResource("AnimationLibrary_vikg4")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
