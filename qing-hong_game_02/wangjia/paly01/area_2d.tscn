@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk5tdrnchiaa1"]
+
+[ext_resource type="Texture2D" uid="uid://pr2hjnxnfs5u" path="res://图像/paizi_01.png" id="2_hrgx5"]
+
+[sub_resource type="GDScript" id="GDScript_d20tr"]
+script/source = "extends Area2D
+
+signal abc
+
+func _ready():
+	self.connect(\"abc\",Callable(self,\"a\"))
+	emit_signal(\"abc\",1,2,3)
+func a(a1,a2,a3):
+	print(a1,a2,a3)
+	
+
+
+
+func _physics_process(delta):
+	for i in get_overlapping_areas():
+		pass
+	var y1 = Input.get_action_raw_strength(\"玩家1上\")*4
+	var y2 = Input.get_action_raw_strength(\"玩家1下\")*4
+	var y3 =position.y-y1+y2
+	if y3 >48:
+		if y3<600:
+			position.y=position.y-y1+y2
+
+
+func on_area_entered(area):
+	if area.is_in_group(\"Ball\"):
+			area.vec.x=2
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ro81i"]
+size = Vector2(10, 100)
+
+[node name="Area2D" type="Area2D"]
+position = Vector2(172, 289)
+script = SubResource("GDScript_d20tr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ro81i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hrgx5")
+
+[connection signal="area_entered" from="." to="." method="on_area_entered"]

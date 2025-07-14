@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://r0t0wafuby00"]
+
+[ext_resource type="Script" uid="uid://dr32s7b46d2mj" path="res://jifenchangjin/Label.gd" id="1_jvav8"]
+[ext_resource type="Script" uid="uid://blq0prnoi7316" path="res://jifenchangjin/Label2.gd" id="2_qvk4s"]
+
+[node name="Node" type="Node"]
+metadata/_edit_horizontal_guides_ = [98.0]
+metadata/_edit_vertical_guides_ = [202.0]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 201.0
+offset_top = 99.0
+offset_right = 241.0
+offset_bottom = 122.0
+script = ExtResource("1_jvav8")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 931.0
+offset_top = 100.0
+offset_right = 971.0
+offset_bottom = 123.0
+script = ExtResource("2_qvk4s")

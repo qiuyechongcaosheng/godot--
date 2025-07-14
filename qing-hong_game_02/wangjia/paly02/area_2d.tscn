@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn6lps5q7tm8x"]
+
+[ext_resource type="Texture2D" uid="uid://pr2hjnxnfs5u" path="res://图像/paizi_01.png" id="2_x1121"]
+
+[sub_resource type="GDScript" id="GDScript_757ne"]
+script/source = "extends Area2D
+
+
+func _physics_process(delta):
+	for i in get_overlapping_areas():
+		if i.is_in_group(\"Ball\"):
+			i.vec.x=-2
+	var y1 = Input.get_action_raw_strength(\"玩家2上\")*4
+	var y2 = Input.get_action_raw_strength(\"玩家2下\")*4
+	var y3 =position.y-y1+y2
+	if y3 >48:
+		if y3<600:
+			position.y=position.y-y1+y2
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ro81i"]
+size = Vector2(10, 100)
+
+[node name="Area2D" type="Area2D"]
+position = Vector2(172, 289)
+script = SubResource("GDScript_757ne")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ro81i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_x1121")

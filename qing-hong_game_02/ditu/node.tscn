@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://cdack1xawgu1r"]
+
+[ext_resource type="Texture2D" uid="uid://dvy8qbfcnx3gp" path="res://图像/zhongjianxian_01.png" id="1_yctmy"]
+[ext_resource type="Script" uid="uid://fvyna6epy8yp" path="res://ditu/Area2D.gd" id="2_pt74x"]
+[ext_resource type="PackedScene" uid="uid://c04u1s2jtvw41" path="res://xiaoqiu/area_2d.tscn" id="3_4nqnf"]
+[ext_resource type="Script" uid="uid://bsatq6jdjb7ov" path="res://ditu/Area2D4.gd" id="4_2r0mr"]
+[ext_resource type="PackedScene" uid="uid://r0t0wafuby00" path="res://jifenchangjin/node.tscn" id="5_q4i75"]
+[ext_resource type="PackedScene" uid="uid://bk5tdrnchiaa1" path="res://wangjia/paly01/area_2d.tscn" id="6_ig6oy"]
+[ext_resource type="PackedScene" uid="uid://dn6lps5q7tm8x" path="res://wangjia/paly02/area_2d.tscn" id="7_eg4md"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5i5u"]
+size = Vector2(0.604325, 458.765)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3m7c"]
+size = Vector2(20.0618, 20)
+
+[node name="Node" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.160567, 0.160567, 0.160567, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 323)
+texture = ExtResource("1_yctmy")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_pt74x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 324)
+scale = Vector2(8.2737, 1.41249)
+shape = SubResource("RectangleShape2D_r5i5u")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(1152, 0)
+script = ExtResource("2_pt74x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-0.5, 324)
+scale = Vector2(8.2737, 1.41249)
+shape = SubResource("RectangleShape2D_r5i5u")
+
+[node name="Area2D3" parent="." instance=ExtResource("3_4nqnf")]
+position = Vector2(577, 315)
+
+[node name="Area2D4" type="Area2D" parent="."]
+script = ExtResource("4_2r0mr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2(576, 0)
+scale = Vector2(57.4224, 0.310936)
+shape = SubResource("RectangleShape2D_c3m7c")
+
+[node name="Area2D5" type="Area2D" parent="."]
+position = Vector2(0, 648)
+script = ExtResource("4_2r0mr")
+y = -1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
+position = Vector2(576, 0)
+scale = Vector2(57.4224, 0.310936)
+shape = SubResource("RectangleShape2D_c3m7c")
+
+[node name="Node" parent="." instance=ExtResource("5_q4i75")]
+
+[node name="Area2D6" parent="." instance=ExtResource("6_ig6oy")]
+position = Vector2(67, 328)
+
+[node name="Area2D7" parent="." instance=ExtResource("7_eg4md")]
+position = Vector2(1096, 325)
